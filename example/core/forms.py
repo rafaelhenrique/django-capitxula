@@ -1,5 +1,5 @@
 from django import forms
-from captchula import Captcha
+from capitxula import Captcha
 
 
 class FormExample(forms.Form):

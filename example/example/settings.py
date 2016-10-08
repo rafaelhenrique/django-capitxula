@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'core.apps.CoreConfig',
-    'captchula',
+    'capitxula',
 ]
 
 MIDDLEWARE = [
