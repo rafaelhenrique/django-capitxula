@@ -7,17 +7,17 @@ CARS_IMAGE_PATH = os.path.join(BASE_PATH, 'images', 'cars')
 
 
 class Captcha(MultipleChoiceField):
-    image_filenames = os.listdir(CARS_IMAGE_PATH)
     widget = CheckboxSelectMultiple
 
     def __init__(self, *args, **kwargs):
         super(Captcha, self).__init__(*args, **kwargs)
-        self.choices = (
-            ("a", "A"),
-            ("b", "B"),
-        )
-        print(BASE_PATH)
-        print(CARS_IMAGE_PATH)
-        # image = random.choice(self.image_filenames)
-        # image_path = os.path.join(CARS_IMAGE_PATH, image)
-        # self.label = image_path
+        image_filenames = os.listdir(CARS_IMAGE_PATH)
+        random.shuffle(image_filenames)
+
+        image_list = []
+        for image in image_filenames:
+            image_full_path = os.path.join(CARS_IMAGE_PATH, image)
+            choice = (image_full_path, image_full_path)
+            image_list.append(choice)
+
+        self.choices = image_list
